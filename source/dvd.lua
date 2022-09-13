@@ -11,7 +11,7 @@ function dvd:init(xspeed, yspeed)
 		y = 110,
 		xspeed = xspeed,
 		yspeed = yspeed,
-		width = 100,
+		width = 45,
 		height = 20
 	}
 end
@@ -49,5 +49,5 @@ end
 
 function dvd:draw()
     local label = self.label;
-    gfx.drawTextInRect("Template", label.x, label.y, label.width, label.height)
+    gfx.drawTextInRect("DVD", label.x, label.y, label.width, label.height)
 end
