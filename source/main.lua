@@ -2,8 +2,9 @@ import "CoreLibs/object"
 import "CoreLibs/graphics"
 import "CoreLibs/sprites"
 
-import "dvd" -- DEMO
-local dvd = dvd(1, -1) -- DEMO
+import "circle"
+-- import "dvd" -- DEMO
+-- local dvd = dvd(1, -1) -- DEMO
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics
@@ -16,27 +17,26 @@ local function loadGame()
 end
 
 local function initialize()
-	local r = 20
-	local circleImage = gfx.image.new(r * 2, r * 2)
-	gfx.pushContext(circleImage)
-		gfx.fillCircleAtPoint(r, r, r)
-	gfx.popContext()
+	local circleSprite = Circle(200, 120, 20)
+	circleSprite:add()
+	local circleSprite2 = Circle(100, 220, 10)
+	circleSprite2:add()
 end
 
 local function updateGame()
-	dvd:update() -- DEMO
+	-- dvd:update() -- DEMO
 end
 
 local function drawGame()
 	gfx.clear() -- Clears the screen
-	dvd:draw() -- DEMO
+	-- dvd:draw() -- DEMO
+	gfx.sprite.update()
 end
 
 initialize()
 loadGame()
 
 function pd.update()
-	gfx.sprite.update()
 	updateGame()
 	drawGame()
 	pd.drawFPS(0,0) -- FPS widget
